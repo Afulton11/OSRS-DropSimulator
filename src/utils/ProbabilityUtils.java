@@ -10,18 +10,18 @@ import java.util.Map;
 /**
  * Contains methods useful for rates.
  */
-public class ProbabilityUtils {
+public final class ProbabilityUtils {
 
     private static Map<String, Double> probabilities = new HashMap<>();
 
     private ProbabilityUtils() {}
 
     /**
-     * returns the probability contained in the string, if the string contains paranthesis
+     * returns the probability contained in the string, if the string contains parenthesis
      * and therefore has an abnormal droprate, a new droprate will be created.
      * @param rateString the string containing the ProbabilityUtils.
      * @return BigDecimal the probability represented as a BigDecimal
-     * @throws ParseException
+     * @throws ParseException thrown when the probability couldn't be retrieved for the given rateString.
      */
     public static Pair<Double, Double> getProb(String rateString) throws ParseException{
         double probability = 0, groupProbability = 0;
@@ -53,10 +53,10 @@ public class ProbabilityUtils {
      * @param ratio a String given in the format of: #/#
      * @return a double ratio
      */
-    public static double parseRatio(String ratio) {
+    private static double parseRatio(String ratio) {
         if(ratio.contains("/")) {
            String[] split = ratio.split("/");
-            /**
+            /*
              *!! For some Reason parsing the double and immediately dividing by the other parsed double causes it to act like an int.
              */
            double num = Double.parseDouble(split[0]);

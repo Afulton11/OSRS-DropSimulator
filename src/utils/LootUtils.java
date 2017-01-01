@@ -14,9 +14,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Andrew on 12/27/2016.
+ * @author Andrew Fulton
  */
-public class LootUtils {
+public final class LootUtils {
 
     private static Random rand;
     /**
@@ -126,11 +126,11 @@ public class LootUtils {
         progressString = String.format("Gathering loot... %3.2f%%", progress);
     }
 
-    public static final String getProgressString() {
+    public static String getProgressString() {
         return progressString;
     }
 
-    public static final double getProgress() {
+    public static double getProgress() {
         return progress;
     }
 
