@@ -1,6 +1,5 @@
-package drops.item;
+package drops;
 
-import drops.DropProbability;
 import drops.npc.NPCDrop;
 import page.WikiConstants;
 import utils.AliasMethod;
@@ -15,7 +14,7 @@ import java.util.List;
  */
 public class DropTable {
 
-    public static final DropTable RARE;
+    private static final DropTable RARE;
 
     static {
         //setup the rare drop table.
@@ -31,8 +30,9 @@ public class DropTable {
 
     /**
     The probability of getting a chance to roll on the dropTable.
+     May remove this in the future..
      */
-    public final double landingProbability;
+    private final double landingProbability;
 
     private final List<NPCDrop> drops;
 
@@ -81,7 +81,7 @@ public class DropTable {
         drops.add(drop);
     }
 
-    public void addDrops(List<NPCDrop> drops) {
+    private void addDrops(List<NPCDrop> drops) {
         this.drops.addAll(drops);
     }
 

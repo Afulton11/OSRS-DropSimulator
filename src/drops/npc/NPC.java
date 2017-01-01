@@ -1,7 +1,7 @@
 package drops.npc;
 
 import drops.DropProbability;
-import drops.item.DropTable;
+import drops.DropTable;
 import org.apache.commons.lang3.StringUtils;
 import page.WikiConstants;
 import utils.PageUtils;
@@ -33,7 +33,7 @@ public class NPC {
      * @return a new NPC
      * @throws FileNotFoundException thrown if the given name doesnt translate into a correct wiki link.
      */
-    public static final NPC createNPC(String name)  throws IOException {
+    public static NPC createNPC(String name)  throws IOException {
         String pagesource = PageUtils.getNPCPageSource(name);
         //parse the number of rolls per kill from the page source.
         int rollsPerKill = 1;
@@ -64,8 +64,8 @@ public class NPC {
     public NPCDrop[] rollDrop() {
         int numDrops = rollsPerKill + alwaysDrops.size();
         List<NPCDrop> drops = new ArrayList<>();
-        for(int i = 0; i < alwaysDrops.size(); i++) {
-            drops.add(alwaysDrops.get(i));
+        for(NPCDrop drop : alwaysDrops) {
+            drops.add(drop);
         }
         if(numDrops > alwaysDrops.size()) {
                 for(int i = alwaysDrops.size(); i < numDrops; i++) {

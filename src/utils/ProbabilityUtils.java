@@ -9,6 +9,7 @@ import java.util.Map;
 
 /**
  * Contains methods useful for rates.
+ * @author Andrew Fulton
  */
 public final class ProbabilityUtils {
 
@@ -18,7 +19,7 @@ public final class ProbabilityUtils {
 
     /**
      * returns the probability contained in the string, if the string contains parenthesis
-     * and therefore has an abnormal droprate, a new droprate will be created.
+     * and therefore has an abnormal drop rate, a new drop rate will be created.
      * @param rateString the string containing the ProbabilityUtils.
      * @return BigDecimal the probability represented as a BigDecimal
      * @throws ParseException thrown when the probability couldn't be retrieved for the given rateString.
