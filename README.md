@@ -5,7 +5,7 @@ A tool for osrs that approximates loot you may get from anything that drops/give
 Simply type the name of the npc in the *top box* and the amount of times to 'kill' the npc in the box below it.
 Then click on set loot.
 
-The boxes are denoted by tooltip texts that can be seen by hovering over the each one.
+The boxes are denoted by tooltip texts that can be seen by hovering over each one.
 
 # Screenshots
 ![screenshot](http://i.imgur.com/2dkfwlu.png "Screenshot")
