@@ -5,7 +5,7 @@ While not entirely accurate, It still is fun to see what you might get.
 Simply type the name of the npc in the *top box* and the amount of times to 'kill' the npc in the box below it.
 Then click on set loot.
 
-The boxes are denoted by tooltip texts that can be seen by hovering over the each one.
+The boxes are denoted by tooltip texts that can be seen by hovering over each one.
 
 # Screenshots
 ![Alt Text](http://i.imgur.com/2dkfwlu.png "Screenshot")
@@ -13,5 +13,5 @@ The boxes are denoted by tooltip texts that can be seen by hovering over the eac
 # Finding Acceptable Names
 As long as the name you type in to the *npc box* is spelled correctly, the npc you were looking up should be found. The Drop Simulator generates a wiki link corresponding to the name you typed in. If the npc isn't found the npc may not be on the osrs wiki!
 
-# [Jar Download](http://tinyurl.com/h4onf3h)
+# [Jar Download](https://www.dropbox.com/s/wssxkz7m1joa98b/OSRS%20Drop%20Simulator.jar?dl=0)
 
