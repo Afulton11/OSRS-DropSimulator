@@ -14,18 +14,24 @@ import java.util.List;
  */
 public class DropTable {
 
-    private static final DropTable RARE;
+    private static DropTable RARE;
 
     static {
-        //setup the rare drop table.
-        RARE = new DropTable(1/64); //1/8.4321 is about the correct rarity for zulrah
-        RARE.addDrops(WikiConstants.getNPCDrops(PageUtils.getWikiPageSource(WikiConstants.rareDropTableUrl), WikiConstants.rareDropTableName));
-        NPCDrop[] blanks = new NPCDrop[10];
-        for(int i = 0; i < blanks.length; i++) {
-            blanks[i] = NPCDrop.NULL_DROP;
+        try {
+            //setup the rare drop table.
+            RARE = new DropTable(1 / 64); //1/8.4321 is about the correct rarity for zulrah
+            RARE.addDrops(WikiConstants.getNPCDrops(PageUtils.getWikiPageSource(WikiConstants.rareDropTableUrl), WikiConstants.rareDropTableName));
+            NPCDrop[] blanks = new NPCDrop[10];
+            for (int i = 0; i < blanks.length; i++) {
+                blanks[i] = NPCDrop.NULL_DROP;
+            }
+            RARE.addDrops(Arrays.asList(blanks));
+            RARE.normalize();
         }
-        RARE.addDrops(Arrays.asList(blanks));
-        RARE.normalize();
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /**

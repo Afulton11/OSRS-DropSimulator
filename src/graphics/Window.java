@@ -44,7 +44,6 @@ import java.util.Set;
  */
 public class Window extends JFrame {
 
-
     public Window(final int width, final int height, final GraphicApp app) {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(width, height);
@@ -69,7 +68,6 @@ public class Window extends JFrame {
                 MouseReleasedEvent event = new MouseReleasedEvent(e.getButton(), e.getX(), e.getY());
                 app.onEvent(event);
             }
-
 
             @Override
             public void mouseMoved(MouseEvent e) {

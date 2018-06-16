@@ -65,7 +65,7 @@ public class WikiConstants {
     public static List<NPCDrop> getNPCDrops(String pagesource, String npcName) {
         Matcher matcher = WikiConstants.dropPattern.matcher(pagesource);
         List<NPCDrop> dropList = new ArrayList<>();
-        matcherLoop: while(matcher.find()) {
+        while(matcher.find()) {
             Item item;
             String item_name = StringEscapeUtils.unescapeHtml4(matcher.group(DROP_NAME));
             if (!itemMap.containsKey(item_name)) {
@@ -90,7 +90,11 @@ public class WikiConstants {
                 if (matcher.group(DROP_OPTIONAL_AMT) != null)
                     optionalAmt = NumberFormat.getNumberInstance(Locale.US).parse(matcher.group(DROP_OPTIONAL_AMT)).intValue();
 
-                Pair<Double, Double> probabilityInfo = ProbabilityUtils.getProb(matcher.group(DROP_PROB));
+                String dropProbabilityString = matcher.group(DROP_PROB);
+//                if (dropProbabilityString.contains("<"))
+//                    dropProbabilityString = removeTags(dropProbabilityString);
+
+                Pair<Double, Double> probabilityInfo = ProbabilityUtils.getProb(dropProbabilityString);
                 probability = probabilityInfo.getValue();
 
                 //get market price of item.
@@ -134,5 +138,17 @@ public class WikiConstants {
             }
         }
         return dropList;
+    }
+
+    private static String removeTags(String tagString)
+    {
+
+        Pattern beginningTag = Pattern.compile("(<[\\w]+>)");
+        Pattern endingTag = Pattern.compile("(</[\\w]+>)");
+
+        tagString = beginningTag.matcher(tagString).replaceAll("");
+        tagString = endingTag.matcher(tagString).replaceAll("");
+
+        return tagString;
     }
 }

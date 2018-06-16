@@ -19,7 +19,7 @@ public final class Utils {
     }
 
     public static double calcCenterXForImg(BufferedImage image, Rectangle rectangle) {
-        return rectangle.x + ((rectangle.getWidth() - image.getWidth()) / 2);
+        return rectangle.x + ((rectangle.getWidth() - image.getWidth()) / 2.0);
 
     }
 

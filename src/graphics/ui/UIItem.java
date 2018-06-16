@@ -60,7 +60,7 @@ public class UIItem extends UI {
         return this;
     }
 
-    public UIItem setLabel(@NotNull String label, @Nullable Font font) {
+    public UIItem setLabel(String label, @Nullable Font font) {
         this.label = label;
         if(font != null)
             this.font = font;
@@ -80,6 +80,7 @@ public class UIItem extends UI {
         int imgX = (int) Math.floor(Utils.calcCenterXForImg(image, bounds));
         int imgY = (int) Math.floor(Utils.calcBaselineYForImg(image, bounds));
         g.drawImage(image, imgX, imgY, null);
+
         if(label != null && !label.isEmpty()) {
             g.setColor(labelColor);
             Rectangle2D labelBounds = g.getFontMetrics(font).getStringBounds(label, g);
@@ -97,7 +98,7 @@ public class UIItem extends UI {
                 g.setColor(hoverColor);
                 g.fillRect(bounds.x , bounds.y + 8, bounds.width, bounds.height - 8);
             }
-            //TODO: make this hover a seperate object that has only one instance, all other things will send text to it. This would make it a bit more organized.
+            //TODO: make this hover a separate object that has only one instance, all other things will send text to it. This would make it a bit more organized.
             if(hoverLabelColor == null) hoverLabelColor = labelColor;
             g.setColor(hoverLabelColor);
             Rectangle2D hoverLabelBounds = g.getFontMetrics(hoverFont).getStringBounds(hoverLabel, g);

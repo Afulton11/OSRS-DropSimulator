@@ -26,10 +26,22 @@ public final class ProbabilityUtils {
      */
     public static Pair<Double, Double> getProb(String rateString) throws ParseException{
         double probability = 0, groupProbability = 0;
+
         if(rateString.contains("(")) {
             //check if the rateString has already been calculated and return it.
             if(probabilities.containsKey(rateString)) probability = probabilities.get(rateString);
             else {
+                // wiki has updated format for rarity a little bit. Formats can also be (128; 32) where it is either 1/128 or 1/32
+
+                if (rateString.contains(";"))
+                {
+                    // just get rid of the lower half, our probabilities should be high.
+                    // also the lower half is only if you are wearing a ring of wealth, which we are not.
+                    int colonIndex = rateString.indexOf(";");
+                    String toRemove = rateString.substring(colonIndex, rateString.indexOf(')'));
+                    rateString = rateString.replace(toRemove, "");
+                }
+
                 //get the dropRate from the text. the wiki normally uses this format: (1/R), where R is a number.
                 String safeRate = rateString.replaceAll(",", "").replaceAll("~", "");
                 probability = parseRatio(safeRate.substring(safeRate.indexOf('(') + 1, safeRate.indexOf(')')));
