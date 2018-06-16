@@ -13,5 +13,5 @@ The boxes are denoted by tooltip texts that can be seen by hovering over each on
 # Finding Acceptable Names
 As long as the name you type in to the *npc box* is spelled correctly, the npc you were looking up should be found. The Drop Simulator generates a wiki link corresponding to the name you typed in. If the npc isn't found the npc may not be on the osrs wiki!
 
-# [Jar Download](https://www.dropbox.com/s/wssxkz7m1joa98b/OSRS%20Drop%20Simulator.jar?dl=0)
-
+# Download
+Go to the Releases tab!
